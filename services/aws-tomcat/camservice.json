@@ -340,7 +340,7 @@
                 "title": "Amazon EC2 with apache Tomcat v8_b631b9",
                 "template_name": "Amazon EC2 with apache Tomcat v8",
                 "version": "main",
-                "id": "amazonec31feff6a",
+                "id": "amazonec31feff6a398",
                 "template_type": "Terraform",
                 "template_content_type": "Amazon EC2",
                 "template_provider": "Amazon EC2",
