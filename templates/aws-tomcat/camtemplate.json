@@ -1,5 +1,5 @@
 {
-    "name": "Amazon EC2 with apache Tomcat v8",
+    "name": "Amazon EC2 with Apache Tomcat v8",
     "description": "Amazon EC2 Ubuntu 14.04 virtual server under an existing Virtual Private Cloud (VPC) with Apache Tomcat v8.",
     "version": "1.0",
     "imageUrl": "",
