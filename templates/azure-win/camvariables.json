@@ -28,6 +28,10 @@
                     "label": "West Europe",
                     "default": "true"
                 },
+                {
+                    "value": "UK West",
+                    "label": "UK West"
+                },
               {
                   "value": "West US",
                   "label": "West US"
