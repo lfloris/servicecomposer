@@ -179,17 +179,22 @@ resource "azurerm_virtual_machine" "vm" {
   resource_group_name   = azurerm_resource_group.default.name
   network_interface_ids = [azurerm_network_interface.vm.id]
   vm_size               = "Standard_F2"
-  admin_username      = "${var.admin_user}"
-  admin_password      = "${var.admin_user_password}"
+  //admin_username      = "${var.admin_user}"
+  //admin_password      = "${var.admin_user_password}"
 
-  source_image_reference {
+  storage_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
     sku       = "2016-Datacenter"
     version   = "latest"
   }
+ 
+  os_profile {
+      admin_username = "${var.admin_user}"
+      admin_password = "${var.admin_user_password}"
+  }
 
-  os_disk {
+  storage_os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
