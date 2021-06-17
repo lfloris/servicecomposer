@@ -158,7 +158,7 @@ resource "aws_instance" "orpheus_ubuntu_micro" {
   ami           = "${data.aws_ami.aws_ami.id}"
   subnet_id     = "${data.aws_subnet.selected.id}"
   key_name      = "${aws_key_pair.temp_public_key.id}" //"${aws_key_pair.orpheus_public_key.id}"
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   tags          = "${merge(module.camtags.tagsmap, map("Name", "${var.ibm_stack_name}"))}"
   
   connection {
