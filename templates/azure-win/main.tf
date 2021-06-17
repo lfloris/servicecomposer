@@ -192,7 +192,7 @@ resource "azurerm_virtual_machine" "vm" {
   os_profile {
       admin_username = "${var.admin_user}"
       admin_password = "${var.admin_user_password}"
-      computer_name  = "${var.name_prefix}-vm"
+      computer_name  = "MyComputer-vm"
   }
 
   os_profile_windows_config {
