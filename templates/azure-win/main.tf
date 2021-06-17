@@ -1,6 +1,6 @@
 #################################################################
 # Terraform template that will deploy:
-#    * Ubuntu VM on Microsoft Azure
+#    * Windows Server VM on Microsoft Azure
 #
 # Version: 2.4
 #
@@ -193,6 +193,10 @@ resource "azurerm_virtual_machine" "vm" {
       admin_username = "${var.admin_user}"
       admin_password = "${var.admin_user_password}"
       computer_name  = "${var.name_prefix}-vm"
+  }
+
+  os_profile_windows_config {
+      provision_vm_agent = true
   }
 
   storage_os_disk {
