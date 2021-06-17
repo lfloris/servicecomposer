@@ -202,31 +202,31 @@ resource "azurerm_virtual_machine" "vm" {
   tags             = module.camtags.tagsmap
 }
 
-resource "azurerm_virtual_machine_extension" "domjoin" {
-       name = "domjoin"   
-       location = "${var.location}"   
-       resource_group_name = azurerm_resource_group.default.name
-       virtual_machine_name = "${var.name_prefix}-vm"
-       publisher = "Microsoft.Compute"   
-       type = "JsonADDomainExtension"   
-       type_handler_version = "1.3"   
-       # What the settings mean: https://docs.microsoft.com/en-us/windows/desktop/api/lmjoin/nf-lmjoin-netjoindomain   
-       settings = <<SETTINGS   {   
-           "Name": "pixelrobots.co.uk",   
-           "OUPath": "OU=Servers,DC=pixelrobots,DC=co,DC=uk",   
-           "User": "pixelrobots.co.uk\\pr_admin",   
-           "Restart": "true",   "Options": "3"   
-        }   
-        SETTINGS   
+# resource "azurerm_virtual_machine_extension" "domjoin" {
+#        name = "domjoin"   
+#        location = "${var.location}"   
+#        resource_group_name = azurerm_resource_group.default.name
+#        virtual_machine_name = "${var.name_prefix}-vm"
+#        publisher = "Microsoft.Compute"   
+#        type = "JsonADDomainExtension"   
+#        type_handler_version = "1.3"   
+#        # What the settings mean: https://docs.microsoft.com/en-us/windows/desktop/api/lmjoin/nf-lmjoin-netjoindomain   
+#        settings = <<SETTINGS   {   
+#            "Name": "pixelrobots.co.uk",   
+#            "OUPath": "OU=Servers,DC=pixelrobots,DC=co,DC=uk",   
+#            "User": "pixelrobots.co.uk\\pr_admin",   
+#            "Restart": "true",   "Options": "3"   
+#         }   
+#         SETTINGS   
         
-        protected_settings = <<PROTECTED_SETTINGS   
-        {   
-            "Password": "${var.admin_user_password}"   
-        }
-        PROTECTED_SETTINGS   
+#         protected_settings = <<PROTECTED_SETTINGS   
+#         {   
+#             "Password": "${var.admin_user_password}"   
+#         }
+#         PROTECTED_SETTINGS   
         
-        depends_on = ["azurerm_virtual_machine.vm"]   
-}
+#         depends_on = ["azurerm_virtual_machine.vm"]   
+# }
 
 #########################################################
 # Output
