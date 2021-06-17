@@ -198,7 +198,7 @@ resource "azurerm_virtual_machine" "vm" {
   storage_os_disk {
     name          = "${var.name_prefix}-vm-os-disk1"
     caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
+    //storage_account_type = "Standard_LRS"
     create_option = "FromImage"
   }
 
