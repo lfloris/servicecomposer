@@ -23,10 +23,14 @@
             "secured": false,
             "type": "string",
             "options": [
+                {
+                    "value": "West Europe",
+                    "label": "West Europe",
+                    "default": "true"
+                },
               {
                   "value": "West US",
-                  "label": "West US",
-                  "default": "true"
+                  "label": "West US"
               },
               {
                   "value": "West US 2",
