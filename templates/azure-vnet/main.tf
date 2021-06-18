@@ -50,6 +50,10 @@ variable "name_prefix" {
   default     = "singleVM"
 }
 
+variable "public_ip" {
+  default     = true
+}
+
 #########################################################
 # Deploy the network resources
 #########################################################
@@ -111,4 +115,18 @@ resource "azurerm_network_security_group" "vm" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+}
+
+resource "azurerm_network_interface" "vm" {
+  name                = "${var.name_prefix}-${random_id.default.hex}-vm-nic1"
+  location            = var.azure_region
+  resource_group_name = azurerm_resource_group.default.name
+
+  ip_configuration {
+    name                          = "${var.name_prefix}-${random_id.default.hex}-vm-nic1-ipc"
+    subnet_id                     = azurerm_subnet.vm.id
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = var.public_ip ? azurerm_public_ip.vm[0].id : null //azurerm_public_ip.vm.id
+  }
+  tags                = module.camtags.tagsmap
 }
