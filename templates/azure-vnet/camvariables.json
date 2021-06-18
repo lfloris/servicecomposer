@@ -1,0 +1,83 @@
+{
+    "terraform_version": "~> 0.12.0",
+    "input_datatypes": [],
+    "input_groups": [
+        {
+            "name": "Globals",
+            "label": "Azure Globals"
+        },
+        {
+            "name": "Instances-azurerm_virtual_machine",
+            "label": "Instance - Azure Virtual Machine"
+        }
+    ],
+    "output_groups": [],
+    "template_input_params": [
+        {
+            "name": "azure_region",
+            "label": "Azure Region",
+            "description": "Azure region to deploy infrastructure resources",
+            "hidden": false,
+            "immutable": false,
+            "required": true,
+            "secured": false,
+            "type": "string",
+            "options": [
+                {
+                    "value": "West Europe",
+                    "label": "West Europe",
+                    "default": "true"
+                },
+                {
+                    "value": "UK West",
+                    "label": "UK West"
+                },
+              {
+                  "value": "West US",
+                  "label": "West US"
+              },
+              {
+                  "value": "West US 2",
+                  "label": "West US 2"
+              },
+              {
+                  "value": "East US",
+                  "label": "East US"
+              },
+              {
+                  "value": "East US",
+                  "label": "East US 2"
+              },
+              {
+                  "value": "Central US",
+                  "label": "Central US"
+              },
+              {
+                  "value": "North Central US",
+                  "label": "North Central US"
+              },
+              {
+                  "value": "South Central US",
+                  "label": "South Central US"
+              },
+              {
+                  "value": "West Central US",
+                  "label": "West Central US"
+              }
+            ]
+        },
+        {
+            "name": "name_prefix",
+            "label": "Prefix of Resource Names",
+            "description": "Prefix of names for Azure resources; The name prefix must be 1-52 alphanumeric characters and dash",
+            "default": "virtualmachine",
+            "hidden": false,
+            "immutable": false,
+            "required": true,
+            "secured": false,
+            "type": "string",
+            "regex": "^[A-Za-z0-9-]{1,52}$"
+        }
+    ],
+    "template_output_params": []
+}

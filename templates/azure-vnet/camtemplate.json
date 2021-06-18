@@ -1,0 +1,33 @@
+{
+    "name": "Microsoft Azure VNet",
+    "description": "Deploys VNet on Microsoft Azure",
+    "version": "2.4",
+    "type": "Azure",
+    "manifest": {
+      "template_type": "Terraform",
+      "template_format": "HCL",
+      "template_provider": "Microsoft Azure",
+      "template": {
+        "templateData":"",
+        "templateVariables": "",
+        "templateOutput": ""
+      },
+      "template_source": {
+        "githubRepoUrl": "",
+        "githubAccessToken": "",
+        "relativePathToTemplateFolder": "",
+        "templateFileName": "main.tf"
+      }
+    },
+    "metadata": {
+      "displayName": "Azure VNet",
+      "providerDisplayName": "Microsoft Azure",
+      "longDescription": "Deploysa VNet on Microsoft Azure",
+      "bullets": [
+       {
+         "title": "Clouds",
+         "description": "Microsoft Azure"
+       }
+     ]
+    }
+  }
