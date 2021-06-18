@@ -85,6 +85,15 @@ resource "azurerm_subnet" "vm" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
+resource "azurerm_public_ip" "vm" {
+  count = var.public_ip ? 1 : 0 
+  name                = "${var.name_prefix}-${random_id.default.hex}-vm-pip"
+  location            = var.azure_region
+  resource_group_name = azurerm_resource_group.default.name
+  allocation_method   = "Static"
+  tags                = module.camtags.tagsmap
+}
+
 resource "azurerm_network_security_group" "vm" {
   depends_on		  = ["azurerm_network_interface.vm"]
   name                = "${var.name_prefix}-${random_id.default.hex}-vm-nsg"
